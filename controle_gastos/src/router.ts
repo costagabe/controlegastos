@@ -11,7 +11,32 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: Home,
+      component: Home 
+    },
+    {
+      path: '/transacoes',
+      name: 'transacoes',
+      component:  () => import(/* webpackChunkName: "about" */ './views/Transacoes.vue'),
+    },
+    {
+      path: '/contas',
+      name: 'contas',
+      component:  () => import(/* webpackChunkName: "about" */ './views/Contas.vue'),
+    },
+    {
+      path: '/categorias',
+      name: 'categorias',
+      component:  () => import(/* webpackChunkName: "about" */ './views/Categorias.vue'),
+    },
+    {
+      path: '/tags',
+      name: 'tags',
+      component:  () => import(/* webpackChunkName: "about" */ './views/Tags.vue'),
+    },
+    {
+      path: '/relatorios',
+      name: 'relatorios',
+      component:  () => import(/* webpackChunkName: "about" */ './views/Relatorios.vue'),
     },
     {
       path: '/about',
