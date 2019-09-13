@@ -1,9 +1,9 @@
 <template>
   <v-app>
     <Navbar />
-    <FloatingButtons :actions="this.actions" />
+    <FloatingButtons :actions="this.actions" :isCadastro="this.isCadastro" />
     <v-content>
-      <v-container class="pa-8 mt-8">
+      <v-container class="pa-8">
         <router-view @changeFloatingButtons="changeFloatingButtons" ></router-view> 
       </v-container>
     </v-content>
@@ -24,12 +24,18 @@ export default VueApp.extend({
     Navbar
   },
   data: () => ({
-    actions: new Array<FloatingButtonsAction>()
+    actions: new Array<FloatingButtonsAction>(),
+    isCadastro: window.location.href.includes('cadastro')
   }),
+  mount(){
+    this.isCadastro = window.location.href.includes('cadastro');
+  },
+  updated(){
+    this.isCadastro = window.location.href.includes('cadastro');
+  },
   methods: {
     changeFloatingButtons(data: Array<FloatingButtonsAction>) {
       this.actions = data;
-      console.log("mudou");
     }
   }
 });

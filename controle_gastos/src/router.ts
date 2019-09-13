@@ -39,12 +39,29 @@ export default new Router({
       component:  () => import(/* webpackChunkName: "about" */ './views/Relatorios.vue'),
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
+      path: '/cadastro/transacao',
+      name: 'cadastroTransacao',
+      props: {tipo:'transacao'},
+      component:  () => import(/* webpackChunkName: "about" */ './views/Cadastro.vue'),
     },
+    {
+      path: '/cadastro/conta',
+      name: 'cadastroConta',
+      props: {tipo:'conta'},
+      component:  () => import(/* webpackChunkName: "about" */ './views/Cadastro.vue'),
+    },
+    {
+      path: '/cadastro/categoria',
+      name: 'cadastroCategoria',
+      props: {tipo:'categoria'},
+      component:  () => import(/* webpackChunkName: "about" */ './views/Cadastro.vue'),
+    },
+    {
+      path: '/cadastro/tag',
+      name: 'cadastroTag',
+      props: {tipo:'tag'},
+      component:  () => import(/* webpackChunkName: "about" */ './views/Cadastro.vue'),
+    },
+  
   ],
 });

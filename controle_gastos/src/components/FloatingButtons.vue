@@ -1,5 +1,5 @@
 <template lang="html">
-
+<span v-if="!this.isCadastro">
   <v-speed-dial
       v-model="fab"
       :bottom="true"
@@ -15,21 +15,19 @@
           <v-icon v-else>mdi-plus</v-icon>
         </v-btn>
       </template>
-      <v-btn fab dark small v-for="action in actions" :color="action.color">
+      <v-btn fab dark small v-for="action in actions" :color="action.color" @click="()=>{action.action();fab = false}">
         <v-icon>{{ action.icon }}</v-icon>
       </v-btn>
     </v-speed-dial>
-
+</span>
 </template>
 
 <script lang="ts">
 import FloatingButtonsAction from "./classes/FloatingButtonsAction.vue";
   export default  {
     name: 'floating-buttons',
-    props: ['actions'],
-    mounted() {
-
-    },
+    props: ['actions','isCadastro'],
+  
     data() {
       return {
         fab: false
